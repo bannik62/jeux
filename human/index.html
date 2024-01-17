@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="">
+        <label for="colorPull">Color Jacket</label>
+        <div class="colorPull" name="colorPull">
+          <button class="blue btpu">blue</button>
+          <button class="black btpu">black</button>
+          <button class="brown btpu">brown</button>
+          <button class="grey btpu">grey</button>
+        </div>
+      </div>
+      <div>
+        <label for="colorPant">Color Pant</label>
+      <div class="colorPant" name="colorPant" >
+        <button class="blue btpa">blue</button>
+        <button class="black btpa">black</button>
+        <button class="brown btpa">brown</button>
+        <button class="grey btpa">grey</button>
+      </div>
+    </div>
+    </div>
+    <div id="dessin">
+    <label for="rasterCanvas"><a href="#" onclick="enregistrerDessin()">Enregistrer le dessin</a>
+    </label>
+    <canvas id="rasterCanvas" name="rasterCanvas" width="400" height="300"></canvas>
+    <div class="displayHair"> </div>
+    </div>
+    <div class="parent">
+      <div id="tete">
+        <div class="tete border">
+          <div id="oeil"> 
+            <div class="oeilg border"></div>
+            <div class="oeild border"></div>
+          </div>
+          <div class="nez border"></div>
+        </div>
+      </div>
+      <div id="cou">
+        <div class="cou border"></div>
+      </div>
+      <div id="corps" class="center">
+
+        <div class="corps border buste"> 
+          <div class="bg border buste">
+          <p>  bras gauche</p>
+        </div></div>
+        <div class="bd border buste">
+        <p>Bras droit</p> 
+        </div>
+      </div>
+      <div id="jambes" class="center">
+        <div class="jg color border cp-pantalon">
+          <div class="chaussureg brown border"></div>
+        </div>
+
+        <div class="jd color border cp-pantalon">
+          <div class="chaussured brown border"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="curseur">
+      <div class="containerCursor2">
+        <label for="monCurseurg">Choisissez une valeur :</label>
+        <input
+          type="range"
+          id="monCurseurg"
+          name="curseur"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <p>Valeur sélectionnée gauche: <span id="valeurCurseurg" contenteditable="true" oninput="boomg(event)">50</span></p>
+      </div>
+
+      <div class="containercursor1">
+        <label for="monCurseurd">Choisissez une valeur :</label>
+        <input
+          type="range"
+          id="monCurseurd"
+          name="curseur"
+          min="0"
+          max="100"
+          value="50"
+        />
+
+        <p>Valeur sélectionnée droite: <span id="valeurCurseurd" contenteditable="true" oninput="boomd(event)" >50</span></p>
+      </div>
+
+
+    </div>
+
+    <script type="module" src="/main.js"></script>
+    <script src="move.js"></script>
+    <script src="hair.js"></script>
+    <script src="display.js"></script>
+  </body>
+</html>

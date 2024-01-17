@@ -1,0 +1,172 @@
+.blue {
+  background-color: blue;
+ border:2px solid black;
+} 
+.brown {
+  background-color: brown;
+}
+.black {
+  background-color: black;
+  border:2px solid white;
+}
+.grey {
+  background-color: grey;
+}
+
+.border {
+  border: solid black 2px;
+}
+#app {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: space-around;
+  align-items: centerx;
+  /* width: 100%; */
+  height: 10%;
+  padding: 35px;
+  
+}
+canvas {
+  border: 1px solid #000;
+
+}
+#dessin{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+}
+#tete {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tete {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+#oeil {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.oeilg {
+  height: 23px;
+  width: 13px;
+  border-radius: 50%;
+}
+.oeild {
+  height: 23px;
+  width: 13px;
+  border-radius: 50%;
+}
+.nez {
+  width: 5px;
+  height: 20px;
+}
+.center,
+#cou {
+  display: flex;
+  justify-content: center;
+}
+
+.cou {
+  width: 50px;
+  height: 10px;
+  background-color: antiquewhite;
+  clip-path: polygon(30% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+#corps {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+}
+.corps {
+width: 150px;
+height: 250px;
+}
+
+
+.bd {
+  /* top: 9%;
+  right: 42%;
+  left : 58%; */
+  width: 30px;
+  height: 250px;
+  transform-origin: top left; /* Définir le point d'origine en haut à gauche */
+  transform: rotate(-44deg);
+}
+
+.bg {  
+  /* top: 9%;
+  left: 0%;   */
+  /* right: 57%; */
+  height: 250px;
+  width: 30px;
+  transform-origin: top right; /* Définir le point d'origine en haut à gauche */
+  transform: rotate(44deg);
+}
+#jambes{
+  display: flex; 
+  margin: auto;
+
+  /* justify-content: center; */
+}
+.jg {
+  height: 280px;
+  width: 100px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.jd {
+  /* transform-origin: top; */
+  /* transform: rotate(-15deg); */
+  margin-right: 32px;
+  height: 280px;
+  width: 100px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chaussured {
+  border-top-right-radius: 30%;
+  border-top-left-radius: 30%;
+  height: 40px;
+  width: 100%;
+}
+.chaussureg {
+  border-top-right-radius: 30%;
+  border-top-left-radius: 30%;
+  height: 40px;
+  width: 100%;
+}
+
+.curseur{
+  display: flex;
+  justify-content: space-evenly;
+}
+.displayHair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.absolute{
+position: absolute;
+}
