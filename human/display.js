@@ -38,7 +38,9 @@ function getStoredImages() {
     // Ajoutez les gestionnaires d'événements aux images
     images.forEach((img) => {
         img.addEventListener('mousedown', function(e) {
-          // Ajoutez la classe 'absolute' à la div parente (subDiv)
+          // Ajoutez la classe 'absolute' à la div parente (subDiv)  
+          this.parentElement.classList.add('absolute');
+
           divEnCoursDeDeplacement = this.parentElement;
           offsetX = e.clientX - divEnCoursDeDeplacement.getBoundingClientRect().left;
           offsetY = e.clientY - divEnCoursDeDeplacement.getBoundingClientRect().top;
@@ -57,7 +59,7 @@ function getStoredImages() {
     });
   
     document.addEventListener('mouseup', function() {
-        this.parentElement.classList.remove('absolute');
+        // this.parentElement.classList.remove('absolute');
 
       divEnCoursDeDeplacement = null;
     });

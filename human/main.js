@@ -5,15 +5,16 @@ class Bob {
   }
 }
 
+let boby
 const boutonsPull = document.querySelectorAll('.btpu');
 const boutonsPantalon = document.querySelectorAll('.btpa');
 const bustes = document.querySelectorAll('.buste');
 const legs  = document.querySelectorAll('.cp-pantalon')
-let boby
 let bg = document.querySelector('.bg')
 let bd = document.querySelector('.bd')
 let positionMin = 0
 let positionMax = 0
+
 const bobInstance = new Bob();
 
 

@@ -15,7 +15,7 @@ curseurg.addEventListener("input", function () {
   console.log(bg, angleg, valeurCurseurg.value);
 });
 
-curseurd.addEventListener("change", function () {
+curseurd.addEventListener("input", function () {
   valeurCurseurd.textContent = curseurd.value;
   angled = curseurd.value; // Initialise angleg avec la valeur du curseur
   bd.style.transform = "rotate( -" + angled + "deg)";
