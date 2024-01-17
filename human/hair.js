@@ -1,85 +1,88 @@
-const rasterCanvas = document.getElementById('rasterCanvas');
-const ctx = rasterCanvas.getContext('2d');
+const vectorCanvas = document.getElementById('rasterCanvas');
+const ctx = vectorCanvas.getContext('2d');
 let drawing = false;
-let resizing = false;
-let startX;
-let startY;
+let path = new Path2D();
+console.log(path)
 
-rasterCanvas.addEventListener('mousedown', handleMouseDown);
-rasterCanvas.addEventListener('mousemove', handleMouseMove);
-rasterCanvas.addEventListener('mouseup', handleMouseUp);
+vectorCanvas.addEventListener('mousedown', handleMouseDown);
+vectorCanvas.addEventListener('mousemove', handleMouseMove);
+vectorCanvas.addEventListener('mouseup', handleMouseUp);
 
 function handleMouseDown(e) {
-  if (e.offsetX > rasterCanvas.width - 10 && e.offsetY > rasterCanvas.height - 10) {
-    resizing = true;
-    startX = e.clientX;
-    startY = e.clientY;
-  } else {
-    drawing = true;
-    draw(e);
-  }
+  drawing = true;
+  startDrawing(e);
 }
 
 function handleMouseMove(e) {
-  if (resizing) {
-    const newWidth = rasterCanvas.width + (e.clientX - startX);
-    const newHeight = rasterCanvas.height + (e.clientY - startY);
-
-    rasterCanvas.width = Math.max(newWidth, 10);
-    rasterCanvas.height = Math.max(newHeight, 10);
-
-    drawCanvas();
-  } else if (drawing) {
+  if (drawing) {
     draw(e);
   }
 }
 
 function handleMouseUp() {
-  drawing = false;
-  resizing = false;
-  ctx.beginPath();
+  if (drawing) {
+    drawing = false;
+    endDrawing();
+  }
+}
+
+function startDrawing(e) {
+  const rect = vectorCanvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  path.moveTo(x, y);
+  draw();
 }
 
 function draw(e) {
-  const rect = rasterCanvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  ctx.clearRect(0, 0, vectorCanvas.width, vectorCanvas.height);
 
   ctx.lineWidth = 5;
   ctx.lineCap = 'round';
   ctx.strokeStyle = '#000';
 
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(x, y);
+  ctx.stroke(path);
+
+  if (e) {
+    const rect = vectorCanvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    path.lineTo(x, y);
+    console.log(path);
+  }
+}
+
+function endDrawing() {
+  drawCanvas();
 }
 
 function drawCanvas() {
-  ctx.clearRect(0, 0, rasterCanvas.width, rasterCanvas.height);
-  // Dessine ici tous les éléments que tu veux voir sur le canvas (dessins existants, etc.).
+  // Dessinez ici tous les éléments que vous voulez voir sur le canvas (dessins existants, etc.).
 }
 
 function enregistrerDessin() {
-    // Demandez à l'utilisateur de saisir un nom pour le dessin
-    var nomDessin = prompt("Entrez un nom pour votre dessin :");
-  
-    if (!nomDessin) {
-      // Si l'utilisateur annule la saisie ou entre un nom vide, ne rien faire
-      alert('Nom du dessin non spécifié. Le dessin n\'a pas été enregistré.');
-      return;
-    }
-  
-    var dataURL = rasterCanvas.toDataURL('image/png');
-    
-    // Générez une clé unique basée sur le timestamp actuel et le nom du dessin
-    var timestamp = new Date().getTime();
-    var key = 'imageDataURL_' + nomDessin + '_' + timestamp;
-  
-    // Stockez le DataURL dans le stockage local avec la clé générée
-    localStorage.setItem(key, dataURL);
-  
-    alert('Dessin "' + nomDessin + '" enregistré avec succès!');
-    location.reload();
+  // Demandez à l'utilisateur de saisir un nom pour le dessin
+  var nomDessin = prompt("Entrez un nom pour votre dessin :");
+
+  if (!nomDessin) {
+    // Si l'utilisateur annule la saisie ou entre un nom vide, ne rien faire
+    alert('Nom du dessin non spécifié. Le dessin n\'a pas été enregistré.');
+    return;
+  }
+
+  var dataURL = vectorCanvas.toDataURL('image/png');
+
+  // Générez une clé unique basée sur le timestamp actuel et le nom du dessin
+  var timestamp = new Date().getTime();
+  var key = 'imageDataURL_' + nomDessin + '_' + timestamp;
+  localStorage.setItem(key, dataURL);
+  location.reload();
 }
-  
+
+function clearLocalStorage() {
+    localStorage.clear();
+    alert('Local Storage vidé avec succès!');
+    location.reload()
+  }

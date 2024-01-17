@@ -24,6 +24,8 @@ function getStoredImages() {
       const subDiv = document.createElement('div');
       subDiv.classList.add('image-container');
       subDiv.appendChild(img);
+     
+
   
       // Ajoutez la sous-div à la div .displayHair
       displayHair.appendChild(subDiv);

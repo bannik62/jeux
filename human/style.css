@@ -181,7 +181,9 @@ margin: auto;
   height: 300px;
   
 }
-
+.image-container{
+  z-index: 2;
+}
 
 .absolute{
 position: absolute;
