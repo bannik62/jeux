@@ -1,16 +1,26 @@
 // Sélectionne tous les liens et boutons que tu veux
-let links = document.querySelectorAll("a");
+let links   = document.querySelectorAll("a");
 let buttons = document.querySelectorAll("button");
-let open = document.querySelector(".open");
-let sound = new Audio("../sound/boutonStart.mp3");
-let theOpen = new Audio("../sound/on.wav");
+let open    = document.querySelector(".open");
+let sound   = new Audio("../sound/boutonStart.mp3");
+let theOpen = new Audio("../sound/sonar.mp3");
+let vert    = new Audio("../sound/beep/greentSong.wav")
+let redSong    = new Audio("../sound/beep/redSong.wav")
+let blueSong    = new Audio("../sound/beep/blueSong.wav")
+let yellowSong    = new Audio("../sound/beep/yellowSong.wav")
+let playPattern = localStorage.getItem("sonPlay")
+
+if (playPattern) {
+    
+    console.log(playPattern)
+}
 
 // Fonction pour jouer le son
 function playSound() {
   sound.play();
 }
 function playOpen(volume,playbackRate) {
-  theOpen.volume = volume; // Volume (0.0 à 1.0)
+  theOpen.volume = volume;
   theOpen.playbackRate = playbackRate;
   theOpen.pause();
 }
