@@ -1,0 +1,231 @@
+.border {
+  border: solid 2px black;
+}
+.maskGh a::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle farthest-side at 0% 0%,
+      rgba(255, 255, 255, 0) 90%,
+      rgba(255, 255, 255, 0.8) 90%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    no-repeat;
+  background-position: 200px 0;
+}
+.maskGh a:hover::after,
+.maskGh ::after {
+  transition: background-position 0.2s;
+  background-position: 10px 0;
+  filter: brightness(1.5) contrast(1.2) hue-rotate(30deg);
+}
+/* ----------------------------------------------------------- */
+.maskGb a::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle farthest-side at 0% -5%,
+      rgba(255, 255, 255, 0) 90%,
+      rgba(255, 255, 255, 0.8) 90%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    no-repeat;
+  background-position: 200px 0px;
+  /* animation: rotate(-35deg); */
+  transform: scaleX(1) scaleY(-1);
+}
+.maskGb a:hover::after,
+.maskGb ::after {
+  transition: background-position 0.2s;
+  background-position: 0px 0px;
+}
+/* ------------------------------------------------------ */
+.maskDh a::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  right: 10px;
+  bottom: 0;
+  background: radial-gradient(
+      circle farthest-side at 0% -5%,
+      rgba(255, 255, 255, 0) 90%,
+      rgba(255, 255, 255, 0.8) 90%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    no-repeat;
+  background-position: 200px 0px;
+  /* animation: rotate(-35deg); */
+  transform: scaleX(-1);
+}
+.maskDh a:hover::after,
+.maskDh ::after {
+  transition: background-position 0.2s;
+  background-position: 0px 0px;
+}
+
+/* --------------------------------------------------------------------- */
+.maskDb a::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle farthest-side at 0% 0%,
+      rgba(255, 255, 255, 0) 90%,
+      rgba(255, 255, 255, 0.8) 90%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    no-repeat;
+  background-position: 200px 0;
+  transform: scaleX(-1) scaleY(-1);
+}
+.maskDb a:hover::after,
+.maskDb ::after {
+  transition: background-position 0.2s;
+  background-position: 10px 0;
+}
+.blinking {
+  animation: blink 0.5s infinite alternate;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@keyframes blink {
+  to {
+    background-color: white;
+  }
+}
+.svg{
+  filter: invert(0.5); /* Inverse les couleurs */
+
+}
+
+.body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(0, 0, 0) ;
+  transition: background-color 0.1s ease-in-out;
+  
+}
+
+.degradeBody{  
+  background-repeat: no-repeat;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 89%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+}
+h1 {
+  color: white;
+  font-size: 5rem;
+  letter-spacing: 15px;
+}
+#app {
+  /* border: white solid 2px; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 97vw;
+  max-width: 97vw;
+  min-width: 80vw;
+  height: 90vh;
+  padding: 5px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+align-items: flex-start;
+  box-sizing: border-box;
+  color: white;
+  width: 30vh;
+  border: 2px solid white;
+  padding: 25px;
+}
+
+.parentSimon {
+  box-sizing: border-box;
+  background-image: url(../img/cuire.webp);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62vw;
+  height: 90vh;
+  border: 2px solid white;
+  /* border-radius: 25%; */
+}
+
+.centerSimon {
+  box-shadow: -1px -6px 7px 4px rgba(239, 239, 239, 0.75);
+  -webkit-box-shadow: -1px -6px 7px 4px rgba(239, 239, 239, 0.75);
+  -moz-box-shadow: -1px -6px 7px 4px rgba(239, 239, 239, 0.75);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  border: solid white 2px;
+  border-radius: 50%;
+  top: 13%;
+  left: 20%;
+  z-index: 0;
+}
+
+.hautGauche {
+  position: absolute;
+  left: 25%;
+  top: 20%;
+}
+.hautDroite {
+  position: absolute;
+  right: 32%;
+  top: 20%;
+}
+.basGauche {
+  position: absolute;
+  left: 25%;
+  top: 50.5%;
+}
+.basDroit {
+  position: absolute;
+  right: 32%;
+  top: 50.5%;
+  z-index: 1;
+}
+.simon {
+  position: absolute;
+  left: 42%;
+  top: 45%;
+}
+.switch input{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+}

@@ -52,7 +52,7 @@ function draw(e) {
     path.lineTo(x, y);
     console.log(path);
   }
-}
+}   
 
 function endDrawing() {
   drawCanvas();
@@ -83,6 +83,5 @@ function enregistrerDessin() {
 
 function clearLocalStorage() {
     localStorage.clear();
-    alert('Local Storage vidé avec succès!');
     location.reload()
   }
