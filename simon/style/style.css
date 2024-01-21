@@ -105,6 +105,29 @@
     background-color: white;
   }
 }
+/* Définis l'animation scale */
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Applique l'animation aux éléments avec la classe scaleAnimation */
+.scaleAnimation {
+  animation: scaleAnimation 0.5s ease-in-out;
+}
+
+/* Optionnel : Augmente la vitesse de l'animation au survol */
+.scaleAnimation:hover {
+  animation: scaleAnimation 0.3s ease-in-out;
+}
+
 .svg {
   filter: invert(0.5); /* Inverse les couleurs */
 }
@@ -158,6 +181,7 @@ h1 {
   width: 30vh;
   border: 2px solid white;
   padding: 25px;
+  background-image: url(../img/cuire.webp);
 }
 
 .parentSimon {

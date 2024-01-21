@@ -10,25 +10,20 @@ let tableTouchColor = [
 
 btPlay.addEventListener("click", () => {
     if (storedOnGame === "true") {
-      console.log("La valeur est true");
       console.log("Original " + getClassListLastValues(tableTouchColor));
-  
-      // Appelle la fonction pour mélanger le tableau
+
       let shuffledArray = shuffleArray(tableTouchColor);
 
-      console.log("Copie mélangée " + getClassListLastValues(shuffledArray));
+      console.log("envois tableau mélangée " + getClassListLastValues(shuffledArray));
+    
       let playTracks = getClassListLastValues(shuffledArray)
       localStorage.setItem("songPlay",playTracks);
-      // Obtient la dernière valeur de la classe dans la liste
-      let lastClass = shuffledArray[shuffledArray.length - 1].classList[0];
+    //   let lastClass = shuffledArray[shuffledArray.length - 1].classList[0];
     } else {
-      // La valeur stockée est false ou null (si elle n'a jamais été définie)
       console.log("La valeur est false ou non définie");
-      // Fais ce que tu as besoin de faire lorsque la valeur est false ou non définie
     }
   });
   
-  // Fonction pour obtenir les dernières valeurs de la classe dans la liste
   function getClassListLastValues(shuffleArray) {
     return shuffleArray.map(element => getLastClassValue(element));
   }
@@ -57,7 +52,3 @@ function shuffleArray(array) {
 }
 
 
-tableTouchColor.forEach(element => {
-    console.log("pour nono"+ element);
-    
-});

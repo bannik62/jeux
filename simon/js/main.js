@@ -12,13 +12,13 @@ tableTouchColor = [
   document.querySelector(".blue"),
   document.querySelector(".yellow"),
 ];
-let onGame 
+let onGame;
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("hello world! ");
   toggleButton = document.getElementById("toggleButton");
   display = document.getElementById("display");
-   btPlay = document.querySelector("#play");
-
+  btPlay = document.querySelector("#play");
 
   toggleButton.addEventListener("click", function () {
     if (toggleButton.innerText === "off") {
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
           btPlay.style.display === "none" ? "block" : "none";
       }
       start();
-
     } else if (toggleButton.innerText === "on") {
       toggleButton.classList.remove("btn-success");
       toggleButton.classList.add("btn-danger");
@@ -40,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if ((toggleButton.innerText = "off")) {
         btPlay.style.display =
           btPlay.style.display === "none" ? "block" : "none";
-       
-
       }
 
       // Efface le contenu du display
@@ -56,16 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function start() {
   console.log("start activated");
-  onGame = true
+  onGame = true;
   let blinkCount = 0;
   let logoDiv = document.querySelector(".simon");
   body.classList.add("degradeBody");
   disckCentral.classList.add("centerShadow");
-  localStorage.setItem('onGame', onGame);
-
+  localStorage.setItem("onGame", onGame);
 
   function blink() {
-    let toggleButton = document.getElementById("toggleButton");
 
     logoDiv.style.display = logoDiv.style.display === "none" ? "block" : "none";
     blinkCount++;
@@ -73,7 +68,7 @@ function start() {
     for (let i = 0; i < tableTouchColor.length; i++) {
       setTimeout(() => {
         tableTouchColor[i].classList.toggle("svg");
-      }, i * 1000); // Le délai augmente à chaque itération
+      }, i * 50); // Le délai augmente à chaque itération
     }
 
     // Arrête le clignotement après 5 fois
@@ -91,13 +86,15 @@ function start() {
 function stop() {
   console.log("stop ");
   onGame = false;
-  localStorage.removeItem('onGame', onGame);
+  localStorage.removeItem("onGame", onGame);
+  localStorage.removeItem("songPlay");
+  localStorage.removeItem("waitPlayer")
+  body.classList.toggle("degradeBody");
+  disckCentral.classList.remove("centerShadow");
 
   for (let i = 0; i < tableTouchColor.length; i++) {
     setTimeout(() => {
       tableTouchColor[i].classList.add("svg");
     }, i * 1000); // Le délai augmente à chaque itération
   }
-  body.classList.remove("degradeBody");
-  disckCentral.classList.remove("centerShadow");
 }

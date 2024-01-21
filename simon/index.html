@@ -12,7 +12,7 @@
     />
     <title>Simon</title>
   </head>
-  <body class="degradeBody body">
+  <body class="body">
     <nav class="  ">
       <!-- <h1>Simon</h1> -->
     </nav>
@@ -21,48 +21,64 @@
         <button id="toggleButton" class="btn btn-lg btn-danger open">
           off
         </button>
-               <button id="play" class="btn btn-lg btn-info" style="display:none;">
+        <button id="play" class="btn btn-lg btn-info" style="display: none">
           Play
-        </button> 
-        <div id="display"></div>
+        </button>
+        <div id="display">
+          <button class="son">music</button>
+        </div>
       </div>
       <div class="parentSimon">
         <div class="centerSimon">
-          <img class="simon" style="display:none;" src="./img/simon.svg" alt="" />
+          <img
+            class="simon"
+            style="display: none"
+            src="./img/simon.svg"
+            alt=""
+          />
           <img src="./img/fond.svg" alt="fond cuir" />
         </div>
 
         <div class="hautGauche">
-          <div class="maskGh green svg greenSong">
-            <a href="#"><img class=" flash" src="./img/hautGauche.svg" alt="haut gauche" /></a>
+          <div class="maskGh vert green svg greenSong playerTouch">
+            <a href="#"
+              ><img class="flash" src="./img/hautGauche.svg" alt="haut gauche"
+            /></a>
           </div>
         </div>
         <div class="hautDroite">
-          <div class="maskDh red svg redSong">
-            <a href="#"><img class=" flash" src="./img/hautDroite.svg" alt="" /></a>
+          <div class="maskDh playerTouch rouge red svg redSong">
+            <a href="#"
+              ><img class="flash" src="./img/hautDroite.svg" alt=""
+            /></a>
           </div>
         </div>
         <div class="basGauche">
-          <div class="maskGb yellow svg yellowSong">
-            <a href="#"><img class=" flash" src="./img/basGauche.svg" alt="" /></a>
+          <div class="maskGb playerTouch jaune yellow svg yellowSong">
+            <a href="#"
+              ><img class="flash" src="./img/basGauche.svg" alt=""
+            /></a>
           </div>
         </div>
 
         <div class="basDroit">
-          <div class="maskDb blue svg blueSong">
-            <a href="#"><img class=" flash" src="./img/basDroit.svg" alt="" /></a>
+          <div class="maskDb playerTouch bleu blue svg blueSong">
+            <a href="#"
+              ><img class="flash" src="./img/basDroit.svg" alt=""
+            /></a>
           </div>
         </div>
       </div>
     </div>
-
-    <script type="module" src="./js/main.js"></script>
-    <script src="./js/audio.js"></script>
-    <script type="module" src="./js/game.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <div class="scripts">
+      <script type="module" src="./js/main.js"></script>
+      <script src="./js/audio.js"></script>
+      <script type="module" class="" src="./js/game.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
+    </div>
   </body>
 </html>
