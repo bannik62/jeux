@@ -3,6 +3,7 @@ let body = document.querySelector("body");
 let disckCentral = document.querySelector(".centerSimon");
 let toggleButton;
 let btPlay;
+let btPlaySong = document.querySelector(".son")
 let display = document.querySelector("#display");
 let blinkInterval;
 let tableTouchColor;
@@ -59,6 +60,8 @@ function start() {
   body.classList.add("degradeBody");
   disckCentral.classList.add("centerShadow");
   localStorage.setItem("onGame", onGame);
+  display.innerText = " bienvenu enregistré une séquence"
+
 
   function blink() {
 
@@ -91,6 +94,10 @@ function stop() {
   localStorage.removeItem("waitPlayer")
   body.classList.toggle("degradeBody");
   disckCentral.classList.remove("centerShadow");
+  display.innerText = ""
+  btPlaySong.style.display ="none"
+
+
 
   for (let i = 0; i < tableTouchColor.length; i++) {
     setTimeout(() => {

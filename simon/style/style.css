@@ -171,14 +171,20 @@ h1 {
   height: 90vh;
   padding: 5px;
 }
-
-.menu {
+button {
+  width: auto;
+  height: 50px;
+  margin: 5px!important ;
+}
+.menu {  
+  flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
   box-sizing: border-box;
   color: white;
-  width: 30vh;
+  width: 50vh;
+  height: 50vh;
   border: 2px solid white;
   padding: 25px;
   background-image: url(../img/cuire.webp);
@@ -221,18 +227,18 @@ h1 {
 }
 .hautDroite {
   position: absolute;
-  right: 32%;
+ left:47%;
   top: 20%;
 }
 .basGauche {
   position: absolute;
   left: 25%;
-  top: 50.5%;
+  top: 52%;
 }
 .basDroit {
   position: absolute;
-  right: 32%;
-  top: 50.5%;
+  left: 47%;
+  top: 52%;
   z-index: 1;
 }
 .simon {

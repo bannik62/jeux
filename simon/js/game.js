@@ -1,4 +1,5 @@
 let btPlay = document.querySelector("#play");
+let btPlaySong = document.querySelector(".son")
 let storedOnGame = localStorage.getItem("onGame");
 let toggleButton = document.getElementById("toggleButton");
 let tableTouchColor = [
@@ -10,6 +11,10 @@ let tableTouchColor = [
 
 btPlay.addEventListener("click", () => {
     if (storedOnGame === "true") {
+        btPlaySong.style.display ="block"
+        display.innerText = "séquence enregistrée , vous pouvez a présent la jouer "
+
+
       console.log("Original " + getClassListLastValues(tableTouchColor));
 
       let shuffledArray = shuffleArray(tableTouchColor);

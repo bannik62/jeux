@@ -28,6 +28,28 @@ let playbackRate = 1;
 let speed = 500;
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    function getRandomColor() {
+        const colors = ["greenSong", "blueSong", "redSong", "yellowSong"];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+      }
+  function getAudioByColor(color) {
+    switch (color) {
+      case "greenSong":
+        return greenSong;
+      case "blueSong":
+        return blueSong;
+      case "redSong":
+        return redSong;
+      case "yellowSong":
+        return yellowSong;
+      default:
+        // Gérer le cas par défaut si nécessaire
+        return null;
+    }
+  }
+
   function playAndAnimate(element, song, volume, playbackRate, append) {
     element.classList.add("scaleAnimation");
     song.volume = volume;
@@ -69,10 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
               playAndAnimate(vert, greenSong, volume, playbackRate);
               break;
             case "svg":
-              playAndAnimate(vert, greenSong, volume, playbackRate);
+                getAudioByColor(getRandomColor());
               break;
-            case "playerTouch":
-              playAndAnimate(vert, blueSong, volume, playbackRate);
+            case "playerTouch":           
+                getAudioByColor(getRandomColor());           
+              break;
           }
 
           setTimeout(() => {
