@@ -2,6 +2,7 @@ let btPlay = document.querySelector("#play");
 let btPlaySong = document.querySelector(".son")
 let storedOnGame = localStorage.getItem("onGame");
 let toggleButton = document.getElementById("toggleButton");
+let isSequenceRecorded = true;
 let tableTouchColor = [
   document.querySelector(".green"),
   document.querySelector(".red"),
@@ -12,8 +13,7 @@ let tableTouchColor = [
 btPlay.addEventListener("click", () => {
     if (storedOnGame === "true") {
         btPlaySong.style.display ="block"
-        display.innerText = "séquence enregistrée , vous pouvez a présent la jouer "
-
+        display.innerText = isSequenceRecorded ? "Séquence enregistrée, vous pouvez à présent la jouer song" : "Nouvelle séquence ?";
 
       console.log("Original " + getClassListLastValues(tableTouchColor));
 
@@ -24,6 +24,7 @@ btPlay.addEventListener("click", () => {
       let playTracks = getClassListLastValues(shuffledArray)
       localStorage.setItem("songPlay",playTracks);
     //   let lastClass = shuffledArray[shuffledArray.length - 1].classList[0];
+
     } else {
       console.log("La valeur est false ou non définie");
     }

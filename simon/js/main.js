@@ -102,6 +102,6 @@ function stop() {
   for (let i = 0; i < tableTouchColor.length; i++) {
     setTimeout(() => {
       tableTouchColor[i].classList.add("svg");
-    }, i * 1000); // Le délai augmente à chaque itération
+    }, i * 50); // Le délai augmente à chaque itération
   }
 }

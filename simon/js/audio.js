@@ -22,18 +22,39 @@ let vert = document.querySelector(".vert");
 let rouge = document.querySelector(".red");
 let bleu = document.querySelector(".bleu");
 let jaune = document.querySelector(".jaune");
+const song = document.getElementById("myAudio");
+let playback = document.getElementById("playbackRate");
 
-let volume = 0.6;
-let playbackRate = 1;
+let volumeSlider = document.getElementById("volume");
+let playbackRateSlider = document.getElementById("playbackRate");
+
+
+function updateVolume(value) {
+    volume = parseFloat(value);
+  }
+
+  function updatePlaybackRate(value) {
+    playbackRate = parseFloat(value);
+  }
+volumeSlider.addEventListener("input", function () {
+  updateVolume(this.value);
+});
+
+playbackRateSlider.addEventListener("input", function () {
+  updatePlaybackRate(this.value);
+});
+
+let volume = 0.5; // Initial value
+let playbackRate = 1; // Initial value
 let speed = 500;
 
 document.addEventListener("DOMContentLoaded", function () {
+  function getRandomColor() {
+    const colors = ["greenSong", "blueSong", "redSong", "yellowSong"];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  }
 
-    function getRandomColor() {
-        const colors = ["greenSong", "blueSong", "redSong", "yellowSong"];
-        const randomIndex = Math.floor(Math.random() * colors.length);
-        return colors[randomIndex];
-      }
   function getAudioByColor(color) {
     switch (color) {
       case "greenSong":
@@ -45,12 +66,13 @@ document.addEventListener("DOMContentLoaded", function () {
       case "yellowSong":
         return yellowSong;
       default:
-        // Gérer le cas par défaut si nécessaire
         return null;
     }
   }
 
-  function playAndAnimate(element, song, volume, playbackRate, append) {
+
+
+  function playAndAnimate(element, song) {
     element.classList.add("scaleAnimation");
     song.volume = volume;
     song.playbackRate = playbackRate;
@@ -61,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       song.pause();
       song.currentTime = 0;
     }, speed);
+
     waitPlayer = "true";
     localStorage.setItem("waitPlayer", waitPlayer);
     document.body.appendChild(scriptPlayer);
@@ -69,32 +92,29 @@ document.addEventListener("DOMContentLoaded", function () {
   music.addEventListener("click", () => {
     if (onGame === "true") {
       let playPattern = localStorage.getItem("songPlay").split(",");
-      //   console.log(playPattern);
 
       function playNext(index) {
         if (index < playPattern.length) {
           const titleSong = playPattern[index];
 
-          //   console.log(`${titleSong} playPattern `);
-
           switch (titleSong) {
             case "redSong":
-              playAndAnimate(rouge, redSong, volume, playbackRate);
+              playAndAnimate(rouge, redSong);
               break;
             case "yellowSong":
-              playAndAnimate(jaune, yellowSong, volume, playbackRate);
+              playAndAnimate(jaune, yellowSong);
               break;
             case "blueSong":
-              playAndAnimate(bleu, blueSong, volume, playbackRate);
+              playAndAnimate(bleu, blueSong);
               break;
             case "greenSong":
-              playAndAnimate(vert, greenSong, volume, playbackRate);
+              playAndAnimate(vert, greenSong);
               break;
             case "svg":
-                getAudioByColor(getRandomColor());
+              getAudioByColor(getRandomColor());
               break;
-            case "playerTouch":           
-                getAudioByColor(getRandomColor());           
+            case "playerTouch":
+              getAudioByColor(getRandomColor());
               break;
           }
 
@@ -110,54 +130,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //   function redsong(volume, playbackRate) {
-  //     redSong.volume = volume;
-  //     redSong.playbackRate = playbackRate;
-  //     redSong.pause();
-  //   }
-  //   function yellowsong(volume, playbackRate) {
-  //     yellowSong.volume = volume;
-  //     yellowSong.playbackRate = playbackRate;
-  //     yellowSong.pause();
-  //   }
-  //   function bluesong(volume, playbackRate) {
-  //     blueSong.volume = volume;
-  //     blueSong.playbackRate = playbackRate;
-  //     blueSong.pause();
-  //   }
-  //   function greensong(volume, playbackRate) {
-  //     greenSong.volume = volume;
-  //     greenSong.playbackRate = playbackRate;
-  //     greenSong.pause();
-  //   }
-
-  // ------------------------------------------------
   function playSound() {
     sound.play();
   }
-  function playOpen(volume, playbackRate) {
+
+  function playOpen() {
     theOpen.volume = volume;
     theOpen.playbackRate = playbackRate;
     theOpen.pause();
   }
 
-  // Ajoute un gestionnaire d'événements à chaque lien
   links.forEach(function (link) {
     link.addEventListener("click", playSound);
   });
 
-  // Ajoute un gestionnaire d'événements à chaque bouton
   buttons.forEach(function (button) {
     button.addEventListener("click", playSound);
   });
 
   if (open) {
     open.addEventListener("click", function () {
-      playOpen(0.5, 1);
+      playOpen();
     });
   }
 });
-
-// function mapClassNameToSound(className) {
-//
-//   }

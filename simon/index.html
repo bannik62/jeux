@@ -19,16 +19,22 @@
     <div id="app" class="">
       <div class="menu">
         <div class="containerButton">
-        <button id="toggleButton" class="btn btn-lg btn-danger open">
+        <button  type="switch" id="toggleButton" class="btn btn-lg btn-danger open">
           off
         </button>
         <button id="play" class="btn btn-lg btn-info" style="display: none">
           Séquence
         </button>
-        <button class="son btn btn-light" style="display: none">jouer la sequence</button>
+        <button class="son btn btn-light" style="display: none"  >jouer la sequence</button>
       </div>
         <div id="display">
         </div>
+        <label for="volume">Volume :</label>
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" oninput="updateVolume(this.value)">
+      
+        <label for="playbackRate">Taux de Lecture:</label>
+        <input type="range" id="playbackRate" min="0.5" max="2" step="0.1" value="1" oninput="updatePlaybackRate(this.value)">
+      
       </div>
       <div class="parentSimon">
         <div class="centerSimon">
